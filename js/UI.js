@@ -47,7 +47,7 @@ class UI {
     }
     createMarker() {
         const icon = L.icon({
-            iconUrl: '../images/icon-location.svg',
+            iconUrl: './images/icon-location.svg',
             iconSize: [46, 56],
             iconAnchor: [23, 56],
         });
