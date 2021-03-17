@@ -3,25 +3,28 @@ import API from './API.js';
 import { data } from './data.js';
 
 class App {
-    constructor() {
-        this.api = new API();
-        this.ui = new UI();
-    }
     setUp() {
-        this.ui.createMap();
         addEventListener('DOMContentLoaded', async () => {
-            const result = await this.api.getData();
+            ui.toggleLoader();
+            const result = await api.getData();
             this.assignData(result);
+            ui.toggleLoader();
+            ui.renderData();
+            ui.createMap();
         });
-        this.formSubmit();
     }
-    formSubmit() {
+    formControl() {
         const form = document.querySelector('form');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const input = document.querySelector('input').value;
-            const result = await this.api.getData(input);
+            ui.toggleLoader();
+            const result = await api.getData(input);
             this.assignData(result);
+            ui.toggleLoader();
+            ui.renderData();
+            ui.updateMap();
+            form.reset();
         });
     }
     assignData(result) {
@@ -31,10 +34,13 @@ class App {
         data.location.country = result.location.country;
         data.location.postalCode = result.location.postalCode;
         data.location.timezone = result.location.timezone;
-        this.ui.renderData();
+        data.location.lat = result.location.lat;
+        data.location.lng = result.location.lng;
     }
 }
 
 const app = new App();
-
+const api = new API();
+const ui = new UI();
 app.setUp();
+app.formControl();

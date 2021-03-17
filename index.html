@@ -10,6 +10,13 @@
             href="./images/favicon-32x32.png"
         />
         <link rel="stylesheet" href="./css/style.css" />
+        <!-- Fontawesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+            integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+            crossorigin="anonymous"
+        />
         <!-- Leafletjs CSS -->
         <link
             rel="stylesheet"
@@ -43,38 +50,20 @@
                 <img src="./images/icon-arrow.svg" alt="Search Icon" />
             </button>
         </form>
-        <section class="data-container">
-            <div>
-                <h6>ip address</h6>
-                <h3 id="ip"></h3>
-            </div>
-            <div>
-                <h6>location</h6>
-                <h3>
-                    <span id="city"></span>,
-                    <span id="country"></span>
-                    <span id="postal-code"></span>
-                </h3>
-            </div>
-            <div>
-                <h6>timezone</h6>
-                <h3>UTC <span id="timezone"></span></h3>
-            </div>
-            <div>
-                <h6>isp</h6>
-                <h3 id="isp"></h3>
-            </div>
-        </section>
+        <section class="data-container"></section>
         <main>
             <div id="mapid"></div>
         </main>
+        <div class="loading-container">
+            <div class="spinner"></div>
+        </div>
         <div class="attribution">
             Challenge by
             <a
                 href="https://www.frontendmentor.io?ref=challenge"
                 target="_blank"
                 >Frontend Mentor</a
-            >. Coded by <a href="#">Your Name Here</a>.
+            >. Coded by <a href="#">ianbrdeguzman</a>.
         </div>
     </body>
 </html>

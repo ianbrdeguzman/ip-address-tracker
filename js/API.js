@@ -1,18 +1,34 @@
 class API {
     async getData(input) {
+        const url =
+            'https://geo.ipify.org/api/v1?apiKey=at_QHT7mZIBDqqdosrPxnSCAhwYsKUqP';
         if (input) {
-            const url =
-                'https://geo.ipify.org/api/v1?apiKey=at_QHT7mZIBDqqdosrPxnSCAhwYsKUqP&ipAddress=';
-            const searchURL = `${url}${input}`;
-            const response = await fetch(searchURL);
-            const data = await response.json();
-            return data;
+            const searchUrl = `${url}&ipAddress=${input}`;
+            try {
+                const response = await fetch(searchUrl);
+                if (response.status >= 400) {
+                    const error = await response.json();
+                    throw error.messages;
+                } else {
+                    const data = await response.json();
+                    return data;
+                }
+            } catch (error) {
+                alert(error);
+            }
         } else {
-            const url =
-                'https://geo.ipify.org/api/v1?apiKey=at_QHT7mZIBDqqdosrPxnSCAhwYsKUqP';
-            const response = await fetch(url);
-            const data = await response.json();
-            return data;
+            try {
+                const response = await fetch(url);
+                if (response.status >= 400) {
+                    const error = await response.json();
+                    throw error.messages;
+                } else {
+                    const data = await response.json();
+                    return data;
+                }
+            } catch (error) {
+                alert(error);
+            }
         }
     }
 }
