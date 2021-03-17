@@ -7,23 +7,23 @@ class UI {
         const html = `
             <div>
                 <h6>ip address</h6>
-                <h3 id="ip">${data.ip}</h3>
+                <h2 id="ip">${data.ip}</h2>
             </div>
             <div>
                 <h6>location</h6>
-                <h3>
+                <h2>
                     <span id="city">${data.location.city}</span>,
                     <span id="country">${data.location.country}</span>
                     <span id="postal-code">${data.location.postalCode}</span>
-                </h3>
+                </h2>
             </div>
             <div>
                 <h6>timezone</h6>
-                <h3>UTC <span id="timezone">${data.location.timezone}</span></h3>
+                <h2>UTC <span id="timezone">${data.location.timezone}</span></h2>
             </div>
             <div>
                 <h6>isp</h6>
-                <h3 id="isp">${data.isp}</h3>
+                <h2 id="isp">${data.isp}</h2>
             </div>
         `;
         container.innerHTML = html;
