@@ -26,19 +26,21 @@ body {
 header {
     h1 {
         color: $white;
-        font-size: 1.7rem;
+        font-size: 2rem;
         font-weight: 500;
         margin: 2rem auto;
     }
 }
 form {
     width: 85vw;
-    max-width: 500px;
+    max-width: 555px;
     position: relative;
+    z-index: 2000;
     input {
         width: 100%;
         font-family: inherit;
-        padding: 1.2rem;
+        font-size: 0.8rem;
+        padding: 1.5rem;
         border-radius: 1rem;
         border: none;
         outline: none;
@@ -46,7 +48,7 @@ form {
     button {
         cursor: pointer;
         color: $dark-gray;
-        padding: 1.2rem;
+        padding: 1.5rem;
         background: $very-dark-gray;
         border: none;
         border-top-right-radius: 1rem;
@@ -59,7 +61,8 @@ form {
 }
 section {
     width: 85vw;
-    margin: 1rem auto;
+    max-width: 1110px;
+    margin: 1.5rem auto;
     padding: 1rem 0;
     text-align: center;
     background-color: $white;
@@ -77,8 +80,8 @@ section {
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
         }
-        h3 {
-            font-weight: 500;
+        h2 {
+            font-size: 1rem;
         }
     }
 }
@@ -136,21 +139,15 @@ main {
         transform: rotate(360deg);
     }
 }
-@media (min-width: 1440px) {
-    body {
-        background-size: 100%;
-        overflow: hidden;
-    }
+@media (min-width: 768px) {
     section {
-        width: 80vw;
-        padding: 1rem 2rem;
         margin: 2rem auto;
         text-align: left;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         div {
-            width: 300px;
+            width: 320px;
             padding: 0 2rem;
             border-right: 1px solid $dark-gray;
         }
@@ -159,10 +156,41 @@ main {
             border: none;
         }
     }
+    main {
+        position: absolute;
+        top: 0;
+        #mapid {
+            height: calc(100vh - 250px);
+            top: 250px;
+        }
+    }
     .attribution {
         z-index: 4000;
         display: unset;
         position: absolute;
         bottom: 1rem;
+    }
+}
+@media (min-width: 1024px) {
+    form {
+        input {
+            font-size: 1.1rem;
+        }
+        button {
+            padding: 1.6rem;
+        }
+    }
+    section {
+        padding: 1rem 2rem;
+        div {
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+@media (min-width: 1440px) {
+    body {
+        background-size: 100%;
     }
 }
